@@ -8,10 +8,14 @@ const bodyParser = require('body-parser');
 
 const db = require('./config/db')
 
+const inventoryRoutes = require('./routes/inventory');
+
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use ('/api/inventory', inventoryRoutes);
 
 app.get('/',(req,res) => (
     res.send('Servidor está rodando')
